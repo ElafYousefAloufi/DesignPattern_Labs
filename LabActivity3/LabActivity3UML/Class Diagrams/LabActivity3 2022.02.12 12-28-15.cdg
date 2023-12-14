@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="LabActivity3">
+  <ClassDiagramComponents>
+    <Class name="Company" package="" visibility="public" xPosition="59.0" yPosition="256.0">
+      <Fields>
+        <Field name="number_of_employees" type="int" visibility="private"/>
+        <Field name="positions" type="String" visibility="private"/>
+        <Field name="manager" type="String" visibility="private"/>
+        <Field name="employees" type="String" visibility="private"/>
+        <Field name="depId" type="int" visibility="private"/>
+        <Field name="salary" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+        <Method name="setNumber_of_employees" returnType="void" visibility="public">
+          <Argument type="int" name="number_of_employees"/>
+        </Method>
+        <Method name="getNumber_of_employees" returnType="int" visibility="public"/>
+        <Method name="getPositions" returnType="String" visibility="public"/>
+        <Method name="getManager" returnType="String" visibility="public"/>
+        <Method name="getDepId" returnType="int" visibility="public"/>
+        <Method name="setPositions" returnType="void" visibility="public">
+          <Argument type="String" name="positions"/>
+        </Method>
+        <Method name="setManager" returnType="void" visibility="public">
+          <Argument type="String" name="manager"/>
+        </Method>
+        <Method name="setDepId" returnType="void" visibility="public">
+          <Argument type="int" name="depId"/>
+        </Method>
+        <Method name="getEmployees" returnType="String" visibility="public"/>
+        <Method name="setEmployees" returnType="void" visibility="public">
+          <Argument type="String" name="employees"/>
+        </Method>
+        <Method name="setSalary" returnType="void" visibility="public">
+          <Argument type="double" name="salary"/>
+        </Method>
+        <Method name="getSalary" returnType="double" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Database" package="" visibility="public" xPosition="129.0" yPosition="20.0">
+      <Fields>
+        <Field name="instance" type="Database" visibility="private" isStatic="true"/>
+        <Field name="text" type="String" visibility="public"/>
+        <Field name="connection" type="Connection" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="private"/>
+      </Constructors>
+      <Methods>
+        <Method name="getInstance" returnType="Database" visibility="public" isStatic="true"/>
+        <Method name="connectionToDatabase" returnType="boolean" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="HR" package="" visibility="public" xPosition="928.0" yPosition="319.0">
+      <Fields>
+        <Field name="curriculum_vitaes" type="File" visibility="package"/>
+        <Field name="hire_dates" type="Date" visibility="package"/>
+        <Field name="interviewers" type="String" visibility="package"/>
+        <Field name="interviewees" type="String" visibility="package"/>
+        <Field name="x" type="Database" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getCurriculum_vitaes" returnType="File" visibility="public"/>
+        <Method name="getHire_dates" returnType="Date" visibility="public"/>
+        <Method name="getInterviewers" returnType="String" visibility="public"/>
+        <Method name="getInterviewees" returnType="String" visibility="public"/>
+        <Method name="getX" returnType="Database" visibility="public"/>
+        <Method name="setCurriculum_vitaes" returnType="void" visibility="public">
+          <Argument type="File" name="curriculum_vitaes"/>
+        </Method>
+        <Method name="setHire_dates" returnType="void" visibility="public">
+          <Argument type="Date" name="hire_dates"/>
+        </Method>
+        <Method name="setInterviewers" returnType="void" visibility="public">
+          <Argument type="String" name="interviewers"/>
+        </Method>
+        <Method name="setInterviewees" returnType="void" visibility="public">
+          <Argument type="String" name="interviewees"/>
+        </Method>
+        <Method name="setX" returnType="void" visibility="public">
+          <Argument type="Database" name="x"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="IT" package="" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Fields>
+        <Field name="number_of_devices" type="int" visibility="private"/>
+        <Field name="projects" type="String" visibility="private"/>
+        <Field name="x" type="Database" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getNumber_of_devices" returnType="int" visibility="public"/>
+        <Method name="getProjects" returnType="String" visibility="public"/>
+        <Method name="getX" returnType="Database" visibility="public"/>
+        <Method name="setNumber_of_devices" returnType="void" visibility="public">
+          <Argument type="int" name="number_of_devices"/>
+        </Method>
+        <Method name="setProjects" returnType="void" visibility="public">
+          <Argument type="String" name="projects"/>
+        </Method>
+        <Method name="setX" returnType="void" visibility="public">
+          <Argument type="Database" name="x"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="x" source="IT" target="Database" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Database" target="Database" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="instance" source="Database" target="Database" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="HR" target="Company"/>
+    <IsRelation name="is" source="IT" target="Company"/>
+    <HasRelation name="x" source="HR" target="Database" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="IT" target="Database" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="HR" target="Database" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
